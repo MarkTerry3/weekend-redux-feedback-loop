@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 
 
 
@@ -19,11 +22,21 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
+// The store is the big JavaScript Object that holds all of the information for our application
+const reduxStore = createStore(
+    combineReducers({
+
+    }),
+    applyMiddleware(logger)
+  );
 
 
 
 
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+    <Provider store={reduxStore}>
+      <App />
+    </Provider>,
+    document.getElementById("root")
+  );
