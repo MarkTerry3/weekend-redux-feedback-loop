@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {Provider} from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -15,7 +15,7 @@ function Understanding() {
     const [understanding, setUnderstanding] = useState('');
 
 
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
 
@@ -23,10 +23,14 @@ function Understanding() {
     const handleSubmit = () => {
         event.preventDefault();
 
+        //this is setting the state of the understanding reducer
         dispatch({
             type: 'ADD_UNDERSTANDING',
             payload: understanding
         })
+
+        //this will bring you to the next page you want them to go to
+        history.push('/supported');
     }
 
     return(

@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {Provider} from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -16,7 +16,7 @@ function Comments() {
     const [comments, setComments] = useState('');
 
 
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
@@ -26,6 +26,7 @@ function Comments() {
             type: 'ADD_COMMENTS',
             payload: comments
         })
+        history.push('/reviewFeedback');
     }
 
     return(
@@ -33,7 +34,6 @@ function Comments() {
             <h2>Any comments you want to leave?</h2>
             <form onSubmit={handleSubmit} className="addCommentsInfo">
                 <input 
-                required
                 type="text"
                 placeholder="Comments"
                 value={comments}

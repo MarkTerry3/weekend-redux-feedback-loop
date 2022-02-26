@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {Provider} from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -14,7 +14,7 @@ function Supported() {
     const [supported, setSupported] = useState('');
 
 
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
 
@@ -26,6 +26,8 @@ function Supported() {
             type: 'ADD_SUPPORTED',
             payload: supported
         })
+
+        history.push('/comments');
     }
 
 
