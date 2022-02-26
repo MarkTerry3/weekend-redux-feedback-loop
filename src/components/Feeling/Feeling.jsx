@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
-
+import {Provider} from 'react-redux';
 
 
 
@@ -13,7 +13,11 @@ function Feeling() {
 
     const [feeling, setFeeling] = useState('');
 
+
+
     const dispatch = useDispatch();
+
+
 
     const handleSubmit = () => {
         event.preventDefault();
@@ -57,3 +61,5 @@ function Feeling() {
 
 
 export default Feeling;
+
+
