@@ -13,7 +13,7 @@ function ReviewFeedback() {
     const supportReducer = useSelector(store => store.supportedReducer);
     const commentsReducer = useSelector(store => store.commentsReducer);
 
-
+    // so you can push them to the next page
     const history = useHistory();
 
 

@@ -14,7 +14,7 @@ function Feeling() {
 
     const [feeling, setFeeling] = useState('');
 
-
+    // so you can push them to the next page, and to dispatch the information to the reducer
     const history = useHistory();
     const dispatch = useDispatch();
 
